@@ -1,9 +1,3 @@
-lua << EOF
-
-vim.lsp.start({
-    name = 'python-lsp-server',
-    cmd = {'pylsp'},
-})
-EOF
+lua require('pythonlsp')
 
 set number
