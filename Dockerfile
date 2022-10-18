@@ -18,6 +18,7 @@ RUN dnf install -y \
     pkgconfig \
     unzip \
     patch \
+    procps \
     python3-pip \
     which
 
@@ -31,9 +32,11 @@ RUN make install
 
 RUN pip install python-lsp-server[all]
 RUN useradd admin
-USER admin
+RUN mkdir -p /home/admin/myproject
+RUN chown -R admin:admin /home/admin/
 
-WORKDIR /home/myproject
+USER admin
+WORKDIR /home/admin/myproject
 
 CMD ["/usr/local/bin/nvim", "myfile.py"]
 
