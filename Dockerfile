@@ -30,8 +30,10 @@ RUN make CMAKE_BUILD_TYPE=RelWithDebInfo
 RUN make install
 
 RUN pip install python-lsp-server[all]
+RUN useradd admin
+USER admin
 
-WORKDIR /opt/mydirectory
+WORKDIR /home/myproject
 
 CMD ["/usr/local/bin/nvim", "myfile.py"]
 

@@ -1,6 +1,6 @@
 IMG=neovim-latest
 
-CONFIGDIR=/.config/nvim
+CONFIGDIR=/home/admin/.config/nvim
 
 TAGS= -it
 TAGS+= --rm
