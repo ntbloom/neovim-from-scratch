@@ -13,8 +13,8 @@ For now, this is targeted specifically at Python.
 
 ### Requirements
 
-- docker
-- make
+- `docker`
+- `make`
 
 ### To use
 
