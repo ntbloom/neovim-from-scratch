@@ -33,22 +33,23 @@ RUN dnf install -y \
     procps \
     which
 
-
 # install the language server
 RUN pip install python-lsp-server[all]
-
 
 # launch nvim as the admin user
 RUN useradd admin
 RUN mkdir -p /home/admin/myproject
 
 # install packer as a plugin manager
-RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-    /home/admin/.local/share/nvim/site/pack/packer/start/packer.nvim
+#RUN git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+#    /home/admin/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 RUN chown -R admin:admin /home/admin/
 USER admin
 WORKDIR /home/admin/myproject
+
+# install packer configs in background
+RUN /usr/local/bin/nvim --headless -c 'quitall' 
 
 CMD ["/usr/local/bin/nvim", "myfile.py"]
 
