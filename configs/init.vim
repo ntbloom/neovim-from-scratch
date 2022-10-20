@@ -1,4 +1,4 @@
-lua require('pythonlsp')
+lua require('plugins')
 
 set number
 set ruler
